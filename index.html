@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>최재현 — Jaehyeon Choi</title>
+<title>Jaehyeon Choi | 최재현</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -141,9 +141,25 @@
   }
   .card h3{
     font-size:16.5px;font-weight:700;color:var(--forest);
-    line-height:1.4;margin-bottom:6px;
+    line-height:1.4;margin-bottom:2px;
+  }
+  .card .subtitle{
+    font-size:12.5px;font-weight:500;color:var(--moss);
+    margin-bottom:8px;
   }
   .card p{font-size:14px;color:#41534c;font-weight:300;word-break:keep-all}
+  .card p + .tags{margin-top:12px}
+  .bullets{list-style:none;margin:10px 0 0}
+  .bullets li{
+    position:relative;padding-left:14px;
+    font-size:13.5px;color:#41534c;font-weight:300;
+    margin-top:6px;word-break:keep-all;
+  }
+  .bullets li::before{
+    content:"";position:absolute;left:0;top:.62em;
+    width:5px;height:5px;border-radius:50%;
+    background:var(--gold);
+  }
   .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
   .tag{
     font-size:11px;font-weight:500;letter-spacing:.03em;
@@ -155,8 +171,13 @@
   .tag.gold{color:var(--gold);background:rgba(184,147,90,.09);border-color:rgba(184,147,90,.3)}
 
   .about-lead{
-    font-size:15.5px;font-weight:400;color:var(--forest);
+    font-size:14.5px;font-weight:300;color:#41534c;
     word-break:keep-all;
+  }
+
+  .footnote{
+    font-size:12px;color:var(--moss);font-weight:300;
+    padding:0 6px;margin-top:2px;
   }
 
   /* ---------- Contact ---------- */
@@ -195,11 +216,11 @@
 
   <header>
     <div class="lang-switch" role="group" aria-label="language">
-      <button id="btn-kr" class="on" type="button">KR</button>
-      <button id="btn-en" type="button">EN</button>
+      <button id="btn-kr" type="button">KR</button>
+      <button id="btn-en" class="on" type="button">EN</button>
     </div>
     <div class="header-label" id="hdr-label"></div>
-    <h1 class="header-name"><span id="hdr-name"></span><span class="en" id="hdr-name-en"></span></h1>
+    <h1 class="header-name"><span id="hdr-name"></span><span class="en" id="hdr-name-alt"></span></h1>
     <p class="header-tag" id="hdr-tag"></p>
   </header>
 
@@ -212,109 +233,116 @@
 
 <script>
 const T = {
-  kr: {
-    label: 'Resume & History',
-    name: '최재현',
-    nameEn: 'Jaehyeon Choi',
-    tagline: '광고대행사에서 네이버, 그리고 창업까지. 30여 년간 광고·플랫폼 비즈니스를 만들어온 대표.',
-    tabs: ['ABOUT','CAREER','NOW','EDU','BUILD','CONTACT'],
-    sections: {
-      ABOUT: { title: '소개', html: `
-        <div class="card">
-          <div class="period">PROFILE</div>
-          <h3>최재현 (Jaehyeon Choi)</h3>
-          <p class="about-lead">광고대행사에서 네이버, 그리고 창업까지.<br>30여 년간 광고·플랫폼 비즈니스를 만들어온 대표.</p>
-          <div class="tags">
-            <span class="tag gold">Founder & CEO</span>
-            <span class="tag">Platform Business</span>
-            <span class="tag">Advertising</span>
-          </div>
-        </div>`},
-      CAREER: { title: '경력', items: [
-        { period:'2018 — 현재', title:'주식회사 아이네블루메 — 대표 · 창업', desc:"채팅형소설 및 AI 캐릭터 채팅 플랫폼 '채티(Chatie)' 운영", tags:['창업','CEO','AI Platform'] },
-        { period:'2015', title:'네이버 — 고문', desc:'경영·사업 자문', tags:['Advisor'] },
-        { period:'2013 — 2015', title:'네이버 — DA광고사업전략 총괄', desc:'디스플레이 광고 사업 전략 총괄', tags:['광고 전략','Executive'] },
-        { period:'2008 — 2012', title:'NHN USA — 미주법인장', desc:'캘리포니아 Irvine, 약 50명 조직', tags:['해외 사업','미국'] },
-        { period:'2005 — 2008', title:'네이버 — 부문장 (약 500명 조직)', desc:'네이버서비스기획본부장, 사업개발담당', tags:['서비스 기획','사업개발'] },
-        { period:'2000 — 2005', title:'네이버 — e마케팅팀장 → e마케팅사업부장', desc:'온라인 마케팅 사업 총괄', tags:['마케팅','광고'] },
-        { period:'1993 — 2000', title:'광고기획 AE', desc:'LG애드, 코래드, 제일기획', tags:['광고대행사','AE'] },
-      ]},
-      NOW: { title: '지금 하는 일', items: [
-        { period:'CURRENT', title:'채티(Chatie) 운영', desc:'채팅형소설 및 AI 캐릭터 채팅 플랫폼 운영', tags:['AI','Chatie','Platform'] },
-        { period:'HOBBY', title:'AI 코딩', desc:'AI 코딩 도구로 직접 앱을 만들어 쓰는 것을 즐깁니다', tags:['Devin','Vibe Coding'] },
-      ]},
-      EDU: { title: '학력', items: [
-        { period:'— 1993', title:'고려대학교 사학과 졸업', desc:'서울캠퍼스 인문대학', tags:['Korea University','History'] },
-      ]},
-      BUILD: { title: '이 사이트에 대하여', html: `
-        <div class="card">
-          <div class="period">HOW IT WAS MADE</div>
-          <h3>말로 지시해서 만든 사이트</h3>
-          <p>이 사이트는 개발 비전공자인 CEO가 AI 소프트웨어 엔지니어 Devin에게 말로 지시해서 만들었습니다.<br>
-          디자인과 내용은 사람이 정하고, 코드는 Devin이 작성했습니다.<br>
-          하나의 HTML 파일로 이루어져 있으며 GitHub Pages로 배포되었습니다.</p>
-          <div class="tags">
-            <span class="tag gold">Devin</span>
-            <span class="tag">AI Software Engineer</span>
-            <span class="tag">GitHub Pages</span>
-          </div>
-        </div>`},
-      CONTACT: { title: '연락처', html: `
-        <div class="card">
-          <div class="period">EMAIL</div>
-          <div class="contact-mail">jae@eineblu.me</div>
-          <div class="btn-row">
-            <a class="btn btn-primary" href="mailto:jae@eineblu.me" id="btn-mail"></a>
-            <button class="btn btn-ghost" type="button" id="btn-copy"></button>
-          </div>
-          <div class="copied-msg" id="copied"></div>
-        </div>`},
-    },
-    mail: '이메일 보내기',
-    copy: '주소 복사',
-    copied: '이메일 주소가 복사되었습니다.',
-  },
   en: {
     label: 'Resume & History',
     name: 'Jaehyeon Choi',
-    nameEn: '최재현',
-    tagline: 'From ad agencies to Naver to founding a startup — 30 years of building advertising and platform businesses.',
+    nameAlt: '최재현',
+    tagline: 'From ad agencies to Naver to founding an AI startup — 30+ years of building advertising and platform businesses.',
     tabs: ['ABOUT','CAREER','NOW','EDU','BUILD','CONTACT'],
     sections: {
       ABOUT: { title: 'About', html: `
         <div class="card">
           <div class="period">PROFILE</div>
-          <h3>Jaehyeon Choi (최재현)</h3>
-          <p class="about-lead">From ad agencies to Naver to founding a startup.<br>30 years of building advertising and platform businesses.</p>
+          <h3>Jaehyeon Choi</h3>
+          <div class="subtitle">최재현</div>
+          <p class="about-lead">Executive with 30+ years across advertising, internet platforms, and AI products. Grew Naver's advertising business from ~US$1.5M to ~US$60M in three years, led its 500-person service division, and ran its U.S. subsidiary for four years. Founded an AI product company in 2018 and grew it to 400K monthly active users.</p>
           <div class="tags">
-            <span class="tag gold">Founder & CEO</span>
-            <span class="tag">Platform Business</span>
-            <span class="tag">Advertising</span>
+            <span class="tag gold">Ads · Platforms</span>
+            <span class="tag">Global Business (US)</span>
+            <span class="tag">AI Content</span>
+            <span class="tag">Startup Founder</span>
           </div>
+        </div>
+        <div class="card">
+          <div class="period">LANGUAGES</div>
+          <p class="about-lead">Korean (native), English (business fluent — advanced business writing)</p>
+        </div>
+        <div class="card">
+          <div class="period">PRESS</div>
+          <ul class="bullets">
+            <li>Financial Times (2007)</li>
+            <li>BusinessWeek (2006)</li>
+            <li>ET News column contributions (2007)</li>
+          </ul>
         </div>`},
-      CAREER: { title: 'Career', items: [
-        { period:'2018 — Present', title:'Eineblu Co., Ltd. — Founder & CEO', desc:"Operating 'Chatie', a chat-fiction and AI character chat platform", tags:['Founder','CEO','AI Platform'] },
-        { period:'2015', title:'Naver — Advisor', desc:'Management and business advisory', tags:['Advisor'] },
-        { period:'2013 — 2015', title:'Naver — Head of DA Ad Business Strategy', desc:'Display advertising business strategy', tags:['Ad Strategy','Executive'] },
-        { period:'2008 — 2012', title:'NHN USA — President, North America', desc:'Irvine, California — organization of ~50', tags:['Overseas Business','USA'] },
-        { period:'2005 — 2008', title:'Naver — Division Head (~500 people)', desc:'Head of Service Planning HQ, Business Development', tags:['Service Planning','BizDev'] },
-        { period:'2000 — 2005', title:'Naver — e-Marketing Team Lead → e-Marketing Division Head', desc:'Online marketing business leadership', tags:['Marketing','Advertising'] },
-        { period:'1993 — 2000', title:'Advertising Account Executive', desc:'LG Ad, Korad, Cheil Worldwide', tags:['Ad Agency','AE'] },
-      ]},
+      CAREER: {
+        title: 'Career',
+        footnote: 'Naver was renamed NHN and later changed back to Naver.',
+        items: [
+          { period:'2018 — Present', title:'아이네블루메 대표 (창업)', titleEn:'Founder & CEO, Eineblu',
+            bullets:[
+              "Operating 'Chatie', an AI character chat & creation platform, with ~400K monthly active users",
+              'Led a teen fiction-writing boom producing 1,000+ new works every day',
+            ], tags:['Founder','CEO','AI Platform'] },
+          { period:'2016 — 2017', title:'창업 준비, 엔젤 투자자', titleEn:'Angel Investor & VC Fund LP',
+            bullets:[
+              'Invested directly in Korean startups and served as an LP in venture capital funds',
+            ], tags:['Angel Investor','LP'] },
+          { period:'2015 — 2016', title:'네이버 고문', titleEn:'Senior Advisor, Naver',
+            bullets:[], tags:['Advisor'] },
+          { period:'2013 — 2015', title:'광고사업전략 총괄', titleEn:'Head of Advertising Strategy, Naver',
+            bullets:[
+              'Directed the advertising business strategy in Korea',
+            ], tags:['Ad Strategy','Executive'] },
+          { period:'2008 — 2012', title:'NHN USA 미주법인장', titleEn:'President, NHN USA',
+            bullets:[
+              'Ran the ~50-person subsidiary in Irvine, California',
+            ], tags:['Overseas Business','USA'] },
+          { period:'2007 — 2008', title:'사업개발담당', titleEn:'VP, Business Development',
+            bullets:[
+              'Led strategy development, external relations, and content sourcing partnerships after the Naver division spin-off',
+            ], tags:['BizDev','Partnerships'] },
+          { period:'2005 — 2007', title:'네이버부문장 (500명 규모)', titleEn:'SVP & Head of Naver Division (~500 people)',
+            bullets:[
+              'Oversaw service planning, brand marketing, design, operations, and development',
+              'Redefined search competitiveness as content acquisition rather than algorithms — digitize offline knowledge, partner for online knowledge, and create the rest via communities, blogs, and Knowledge iN',
+              'Led sweeping partnerships with government bodies (National Assembly Library, Statistics Korea, KIPO, National Institute of Korean Language, Seoul Metropolitan Government, Ministry of Foreign Affairs), associations, entertainment companies, publishers, broadcasters & newspapers, and universities',
+              'Search market share rose from 30% to 75% over three years under this strategy',
+              'Explained Naver\u2019s strategy publicly through interviews with the Financial Times and BusinessWeek',
+            ], tags:['500-person org','Search','Partnerships'] },
+          { period:'2004 — 2005', title:'e마케팅사업부장', titleEn:'VP, e-Marketing Business Unit',
+            bullets:[
+              'Oversaw the display advertising and search advertising businesses',
+            ], tags:['Display Ads','Search Ads'] },
+          { period:'2000 — 2004', title:'e마케팅팀장', titleEn:'Head of e-Marketing',
+            bullets:[
+              'Grew ad revenue from ~US$1.5M to ~US$60M in three years (2000–2003)',
+              'Led the introduction of keyword-targeted advertising, which grew to 80% of total ad revenue',
+            ], tags:['Ad Revenue','Keyword Ads'] },
+          { period:'1993 — 2000', title:'광고기획 AE', titleEn:'Account Executive — LG Ad, Korad, Cheil Worldwide',
+            bullets:[
+              'Handled advertising for Samsung financial affiliates including Samsung Life and Samsung Securities at Cheil Worldwide',
+            ], tags:['Ad Agency','AE'] },
+        ]},
       NOW: { title: 'Now', items: [
-        { period:'CURRENT', title:'Running Chatie', desc:'Operating a chat-fiction and AI character chat platform', tags:['AI','Chatie','Platform'] },
-        { period:'HOBBY', title:'AI Coding', desc:'Enjoys building apps for himself with AI coding tools', tags:['Devin','Vibe Coding'] },
+        { period:'CURRENT', title:'채티(Chatie) 운영', titleEn:'Running Chatie',
+          bullets:['Operating a chat-fiction and AI character chat platform'],
+          tags:['AI','Chatie','Platform'] },
+        { period:'HOBBY', title:'AI 코딩', titleEn:'AI Coding',
+          bullets:['Enjoys building apps for himself with AI coding tools'],
+          tags:['Devin','Vibe Coding'] },
       ]},
       EDU: { title: 'Education', items: [
-        { period:'— 1993', title:'Korea University, B.A. in History', desc:'College of Liberal Arts, Seoul', tags:['Korea University','History'] },
+        { period:'— 1993', title:'고려대학교 사학과 졸업', titleEn:'Korea University, B.A. in History',
+          bullets:[], tags:['Korea University','History'] },
       ]},
-      BUILD: { title: 'About this site', html: `
+      BUILD: { title: 'How this was built', html: `
         <div class="card">
-          <div class="period">HOW IT WAS MADE</div>
-          <h3>A site built by spoken instruction</h3>
-          <p>This site was built by a non-developer CEO giving spoken instructions to Devin, an AI software engineer.<br>
-          The design and content were decided by a human; the code was written by Devin.<br>
-          It is a single HTML file, deployed on GitHub Pages.</p>
+          <div class="period">A THROWAWAY TRAVEL APP</div>
+          <h3>Claude-built app for a Japan trip</h3>
+          <ul class="bullets">
+            <li>On a recent trip to Japan, I had Claude build a one-off travel app just for me.</li>
+            <li>It pulled flights, rental car, and hotel details into one place, showed the itinerary day by day in tabs, and put a map link on every leg — no digging through my bag or typing addresses.</li>
+            <li>I am enjoying a world where coding is no longer only for developers.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag gold">Claude</span>
+            <span class="tag">Vibe Coding</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="period">THIS SITE</div>
+          <p class="about-lead">This resume site was built with Devin.</p>
           <div class="tags">
             <span class="tag gold">Devin</span>
             <span class="tag">AI Software Engineer</span>
@@ -336,21 +364,156 @@ const T = {
     copy: 'Copy address',
     copied: 'Email address copied.',
   },
+  kr: {
+    label: 'Resume & History',
+    name: '최재현',
+    nameAlt: 'Jaehyeon Choi',
+    tagline: '광고대행사에서 네이버, 그리고 AI 창업까지. 30여 년간 광고·플랫폼 비즈니스를 만들어온 대표.',
+    tabs: ['ABOUT','CAREER','NOW','EDU','BUILD','CONTACT'],
+    sections: {
+      ABOUT: { title: '소개', html: `
+        <div class="card">
+          <div class="period">PROFILE</div>
+          <h3>최재현</h3>
+          <div class="subtitle">Jaehyeon Choi</div>
+          <p class="about-lead">광고·인터넷 플랫폼·AI 제품을 아우르는 30여 년 경력의 경영자. 네이버 광고사업을 3년 만에 연 매출 20억 원에서 800억 원으로 성장시켰고, 500명 규모의 서비스 부문을 이끌었으며, 미국 법인을 4년간 운영했습니다. 2018년 AI 제품 회사를 창업해 월 활성 사용자 40만 명 규모로 키웠습니다.</p>
+          <div class="tags">
+            <span class="tag gold">광고·플랫폼</span>
+            <span class="tag">글로벌 사업(미주법인)</span>
+            <span class="tag">AI 콘텐츠</span>
+            <span class="tag">창업</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="period">LANGUAGES</div>
+          <p class="about-lead">한국어(모국어), 영어(업무 가능, 비즈니스 영문 작성 상급)</p>
+        </div>
+        <div class="card">
+          <div class="period">PRESS</div>
+          <ul class="bullets">
+            <li>Financial Times (2007)</li>
+            <li>BusinessWeek (2006)</li>
+            <li>전자신문 칼럼 기고 (2007)</li>
+          </ul>
+        </div>`},
+      CAREER: {
+        title: '경력',
+        footnote: '네이버는 NHN으로 사명이 바뀌었다가 다시 네이버로 변경되었습니다.',
+        items: [
+          { period:'2018 — 현재', title:'아이네블루메 대표 (창업)', titleEn:'Founder & CEO, Eineblu',
+            bullets:[
+              'AI 캐릭터 채팅·창작 플랫폼 \u2018채티(Chatie)\u2019 운영, 월 활성 사용자 약 40만 명',
+              '하루 1,000편 이상의 창작물이 쏟아지는 10대 소설 창작 열풍을 주도',
+            ], tags:['창업','CEO','AI Platform'] },
+          { period:'2016 — 2017', title:'창업 준비, 엔젤 투자자', titleEn:'Angel Investor & VC Fund LP',
+            bullets:[
+              '국내 스타트업에 직접 투자하고 벤처캐피털 펀드의 출자자로 활동',
+            ], tags:['엔젤 투자','LP'] },
+          { period:'2015 — 2016', title:'네이버 고문', titleEn:'Senior Advisor, Naver',
+            bullets:[], tags:['Advisor'] },
+          { period:'2013 — 2015', title:'광고사업전략 총괄', titleEn:'Head of Advertising Strategy, Naver',
+            bullets:[
+              '한국에서 광고사업 전략을 지휘',
+            ], tags:['광고 전략','Executive'] },
+          { period:'2008 — 2012', title:'NHN USA 미주법인장', titleEn:'President, NHN USA',
+            bullets:[
+              '미국 캘리포니아 Irvine 소재 법인을 약 50명 규모로 운영',
+            ], tags:['해외 사업','미국'] },
+          { period:'2007 — 2008', title:'사업개발담당', titleEn:'VP, Business Development',
+            bullets:[
+              '네이버부문 분할 이후 전략 개발, 대외 업무, 콘텐츠 소싱 제휴를 총괄',
+            ], tags:['사업개발','제휴'] },
+          { period:'2005 — 2007', title:'네이버부문장 (500명 규모)', titleEn:'SVP & Head of Naver Division (~500 people)',
+            bullets:[
+              '서비스기획, 브랜드마케팅, 디자인, 운영, 개발을 총괄',
+              '검색 경쟁력을 알고리즘이 아닌 콘텐츠 확보의 관점에서 재정의 (오프라인 지식은 디지털화, 온라인 지식은 제휴, 없는 것은 커뮤니티·블로그·지식iN으로 직접 생성)',
+              '정부기관(국회도서관, 통계청, 특허청, 국립국어원, 서울시, 외교부), 협회, 엔터테인먼트, 출판사, 방송사·신문사, 대학과 전방위 제휴를 지휘',
+              '이 전략을 거치며 검색 점유율이 3년간 30%에서 75%로 상승',
+              '파이낸셜타임스, 비즈니스위크 인터뷰를 통해 네이버의 전략을 대외에 설명',
+            ], tags:['500명 조직','검색','제휴'] },
+          { period:'2004 — 2005', title:'e마케팅사업부장', titleEn:'VP, e-Marketing Business Unit',
+            bullets:[
+              '디스플레이 광고와 검색 광고 사업을 총괄',
+            ], tags:['디스플레이 광고','검색 광고'] },
+          { period:'2000 — 2004', title:'e마케팅팀장', titleEn:'Head of e-Marketing',
+            bullets:[
+              '광고 매출을 3년(2000~2003) 만에 20억 원에서 800억 원으로 성장',
+              '키워드 타게팅 광고 도입을 주도해 전체 광고 매출의 80%를 차지하는 사업으로 성장',
+            ], tags:['광고 매출','키워드 광고'] },
+          { period:'1993 — 2000', title:'광고기획 AE', titleEn:'Account Executive — LG Ad, Korad, Cheil Worldwide',
+            bullets:[
+              '제일기획에서 삼성생명, 삼성증권 등 삼성 금융계열사 광고를 담당',
+            ], tags:['광고대행사','AE'] },
+        ]},
+      NOW: { title: '지금 하는 일', items: [
+        { period:'CURRENT', title:'채티(Chatie) 운영', titleEn:'Running Chatie',
+          bullets:['채팅형소설 및 AI 캐릭터 채팅 플랫폼 운영'],
+          tags:['AI','Chatie','Platform'] },
+        { period:'HOBBY', title:'AI 코딩', titleEn:'AI Coding',
+          bullets:['AI 코딩 도구로 직접 앱을 만들어 쓰는 것을 즐김'],
+          tags:['Devin','Vibe Coding'] },
+      ]},
+      EDU: { title: '학력', items: [
+        { period:'— 1993', title:'고려대학교 사학과 졸업', titleEn:'Korea University, B.A. in History',
+          bullets:[], tags:['Korea University','History'] },
+      ]},
+      BUILD: { title: '이 사이트에 대하여', html: `
+        <div class="card">
+          <div class="period">일회용 여행 앱</div>
+          <h3>일본 여행에서 Claude로 만든 앱</h3>
+          <ul class="bullets">
+            <li>최근 일본 여행에서 Claude로 저만을 위한 1회용 여행 앱을 만들어 사용했습니다.</li>
+            <li>항공편·렌터카·숙소 정보를 한곳에 모으고, 일자별 일정을 탭으로 보여주고, 이동 구간마다 지도 링크를 걸어둬서 가방을 뒤지거나 주소를 입력할 필요가 없었습니다.</li>
+            <li>코딩이 개발자만의 전유물이 아닌 세상이 온 것을 즐기는 중입니다.</li>
+          </ul>
+          <div class="tags">
+            <span class="tag gold">Claude</span>
+            <span class="tag">Vibe Coding</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="period">THIS SITE</div>
+          <p class="about-lead">이 이력서 사이트는 Devin으로 만들었습니다.</p>
+          <div class="tags">
+            <span class="tag gold">Devin</span>
+            <span class="tag">AI Software Engineer</span>
+            <span class="tag">GitHub Pages</span>
+          </div>
+        </div>`},
+      CONTACT: { title: '연락처', html: `
+        <div class="card">
+          <div class="period">EMAIL</div>
+          <div class="contact-mail">jae@eineblu.me</div>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="mailto:jae@eineblu.me" id="btn-mail"></a>
+            <button class="btn btn-ghost" type="button" id="btn-copy"></button>
+          </div>
+          <div class="copied-msg" id="copied"></div>
+        </div>`},
+    },
+    mail: '이메일 보내기',
+    copy: '주소 복사',
+    copied: '이메일 주소가 복사되었습니다.',
+  },
 };
 
 const ORDER = ['ABOUT','CAREER','NOW','EDU','BUILD','CONTACT'];
-let lang = 'kr';
+let lang = 'en';
 let active = 'ABOUT';
 
 const tabbar = document.getElementById('tabbar');
 const main = document.getElementById('main');
 
 function cardHtml(item){
+  const title = lang==='kr' ? item.title : item.titleEn;
+  const sub = lang==='kr' ? item.titleEn : item.title;
+  const bullets = (item.bullets||[]).map(b=>`<li>${b}</li>`).join('');
   const tags = (item.tags||[]).map((t,i)=>`<span class="tag${i===0?' gold':''}">${t}</span>`).join('');
   return `<div class="card">
     <div class="period">${item.period}</div>
-    <h3>${item.title}</h3>
-    ${item.desc?`<p>${item.desc}</p>`:''}
+    <h3>${title}</h3>
+    ${sub?`<div class="subtitle">${sub}</div>`:''}
+    ${bullets?`<ul class="bullets">${bullets}</ul>`:''}
     ${tags?`<div class="tags">${tags}</div>`:''}
   </div>`;
 }
@@ -366,7 +529,13 @@ function renderMain(){
   const t = T[lang];
   main.innerHTML = ORDER.map(name=>{
     const s = t.sections[name];
-    const body = s.html !== undefined ? s.html : s.items.map(cardHtml).join('');
+    let body;
+    if(s.html !== undefined){
+      body = s.html;
+    }else{
+      body = s.items.map(cardHtml).join('');
+      if(s.footnote) body += `<div class="footnote">${s.footnote}</div>`;
+    }
     return `<section class="panel${name===active?' on':''}" id="panel-${name}">
       <div class="section-title">${s.title}</div>${body}</section>`;
   }).join('');
@@ -393,7 +562,7 @@ function renderHeader(){
   const t = T[lang];
   document.getElementById('hdr-label').textContent = t.label;
   document.getElementById('hdr-name').textContent = t.name;
-  document.getElementById('hdr-name-en').textContent = t.nameEn;
+  document.getElementById('hdr-name-alt').textContent = t.nameAlt;
   document.getElementById('hdr-tag').textContent = t.tagline;
   document.getElementById('btn-kr').classList.toggle('on', lang==='kr');
   document.getElementById('btn-en').classList.toggle('on', lang==='en');
