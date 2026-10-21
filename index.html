@@ -4,6 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Jaehyeon Choi | 최재현</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="googlebot" content="noindex, nofollow, noarchive">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jaetheory.github.io/My-history/">
+<meta property="og:title" content="최재현 — Jaehyeon Choi">
+<meta property="og:description" content="광고·인터넷 플랫폼·AI를 아우르는 30여 년 경력의 경영자">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://jaetheory.github.io/My-history/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="최재현 — Jaehyeon Choi">
+<meta name="twitter:description" content="광고·인터넷 플랫폼·AI를 아우르는 30여 년 경력의 경영자">
+<meta name="twitter:image" content="https://jaetheory.github.io/My-history/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -160,6 +172,11 @@
     width:5px;height:5px;border-radius:50%;
     background:var(--gold);
   }
+  .press-link{
+    color:var(--forest);text-decoration:none;
+    border-bottom:1px solid rgba(184,147,90,.45);
+  }
+  .press-link .arrow{color:var(--gold);font-size:11px;margin-left:2px}
   .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
   .tag{
     font-size:11px;font-weight:500;letter-spacing:.03em;
@@ -234,10 +251,10 @@
 <script>
 const T = {
   en: {
-    label: 'Resume & History',
+    label: 'RESUME',
     name: 'Jaehyeon Choi',
     nameAlt: '최재현',
-    tagline: 'From ad agencies to Naver to founding an AI startup — 30+ years of building advertising and platform businesses.',
+    tagline: 'From ad agency to internet company to startup founder: a 30-year journey building advertising, service, partnership, and platform businesses.',
     tabs: ['ABOUT','CAREER','NOW','EDU','BUILD','CONTACT'],
     sections: {
       ABOUT: { title: 'About', html: `
@@ -245,7 +262,15 @@ const T = {
           <div class="period">PROFILE</div>
           <h3>Jaehyeon Choi</h3>
           <div class="subtitle">최재현</div>
-          <p class="about-lead">Executive with 30+ years across advertising, internet platforms, and AI products. Grew Naver's advertising business from ~US$1.5M to ~US$60M in three years, led its 500-person service division, and ran its U.S. subsidiary for four years. Founded an AI product company in 2018 and grew it to 400K monthly active users.</p>
+          <p class="about-lead">An ongoing challenge spanning advertising, internet services, platforms, and AI.</p>
+          <ul class="bullets">
+            <li>Took charge of Naver's advertising business and grew annual revenue from KRW 2 billion to KRW 80 billion in three years (~US$1.5M to ~US$60M).</li>
+            <li>Led Naver's 500-person service division through its rapid growth, building a dominant share of the search market.</li>
+            <li>When Google, the strongest player in search, entered Korea, redefined search and built a competitive edge unique to Naver to hold it off. I take pride in creating one of the few cases in the world where a local search service held its ground against Google.</li>
+            <li>Through partnership sales, got more than 80% of TV advertisers to put an on-screen caption on their commercials urging viewers to search for their brand on Naver.</li>
+            <li>Ran the U.S. subsidiary for four years. It was a small operation, but a valuable experience in running a global company.</li>
+            <li>Built a chat-style fiction platform starting in 2018, secured KRW 10 billion (~US$7.5M) in investment from institutional investors, and grew it to 200K monthly active users.</li>
+          </ul>
           <div class="tags">
             <span class="tag gold">Ads · Platforms</span>
             <span class="tag">Global Business (US)</span>
@@ -260,18 +285,18 @@ const T = {
         <div class="card">
           <div class="period">PRESS</div>
           <ul class="bullets">
-            <li>Financial Times (2007)</li>
-            <li>BusinessWeek (2006)</li>
-            <li>ET News column contributions (2007)</li>
+            <li><a class="press-link" href="https://n.news.naver.com/mnews/article/031/0000098825?sid=105" target="_blank" rel="noopener noreferrer">Interviewed by the Financial Times (Jan 2007), as reported by iNews24 (in Korean)<span class="arrow">↗</span></a></li>
+            <li><a class="press-link" href="https://n.news.naver.com/mnews/article/018/0000349225?sid=105" target="_blank" rel="noopener noreferrer">Quoted in BusinessWeek (Jan 2006), as reported by Edaily (in Korean)<span class="arrow">↗</span></a></li>
+            <li><a class="press-link" href="https://www.etnews.com/200701180131" target="_blank" rel="noopener noreferrer">Column in The Electronic Times (Jan 2007): "The Long Tail Rule and Book Search" (in Korean)<span class="arrow">↗</span></a></li>
           </ul>
         </div>`},
       CAREER: {
         title: 'Career',
         footnote: 'Naver was renamed NHN and later changed back to Naver.',
         items: [
-          { period:'2018 — Present', title:'아이네블루메 대표 (창업)', titleEn:'Founder & CEO, Eineblu',
+          { period:'2018 — Present', title:'아이네블루메 대표 (창업)', titleEn:'Founder & CEO, Eineblume',
             bullets:[
-              "Operating 'Chatie', an AI character chat & creation platform, with ~400K monthly active users",
+              'Operate Chatie, a chat-style fiction and AI character chat platform, with about 200K monthly active users',
               'Led a teen fiction-writing boom producing 1,000+ new works every day',
             ], tags:['Founder','CEO','AI Platform'] },
           { period:'2016 — 2017', title:'창업 준비, 엔젤 투자자', titleEn:'Angel Investor & VC Fund LP',
@@ -280,13 +305,13 @@ const T = {
             ], tags:['Angel Investor','LP'] },
           { period:'2015 — 2016', title:'네이버 고문', titleEn:'Senior Advisor, Naver',
             bullets:[], tags:['Advisor'] },
-          { period:'2013 — 2015', title:'광고사업전략 총괄', titleEn:'Head of Advertising Strategy, Naver',
+          { period:'2013 — 2015', title:'디스플레이 광고사업전략 총괄', titleEn:'Head of Display Advertising Strategy, Naver',
             bullets:[
               'Directed the advertising business strategy in Korea',
             ], tags:['Ad Strategy','Executive'] },
           { period:'2008 — 2012', title:'NHN USA 미주법인장', titleEn:'President, NHN USA',
             bullets:[
-              'Ran the ~50-person subsidiary in Irvine, California',
+              'Ran the subsidiary in Irvine, California, executing game publishing and the localization of Naver for the U.S. market',
             ], tags:['Overseas Business','USA'] },
           { period:'2007 — 2008', title:'사업개발담당', titleEn:'VP, Business Development',
             bullets:[
@@ -295,14 +320,14 @@ const T = {
           { period:'2005 — 2007', title:'네이버부문장 (500명 규모)', titleEn:'SVP & Head of Naver Division (~500 people)',
             bullets:[
               'Oversaw service planning, brand marketing, design, operations, and development',
-              'Redefined search competitiveness as content acquisition rather than algorithms — digitize offline knowledge, partner for online knowledge, and create the rest via communities, blogs, and Knowledge iN',
-              'Led sweeping partnerships with government bodies (National Assembly Library, Statistics Korea, KIPO, National Institute of Korean Language, Seoul Metropolitan Government, Ministry of Foreign Affairs), associations, entertainment companies, publishers, broadcasters & newspapers, and universities',
-              'Search market share rose from 30% to 75% over three years under this strategy',
+              'Redefined search competitiveness around content acquisition rather than algorithms: digitize offline knowledge, secure online knowledge through partnerships, and create content that does not exist anywhere through community, blogs, and Knowledge iN',
+              'Led full-spectrum partnerships with government agencies (National Assembly Library, Statistics Korea, Korean Intellectual Property Office, National Institute of Korean Language, Seoul Metropolitan Government, Ministry of Foreign Affairs), professional associations, entertainment companies, publishers, broadcasters and newspapers, and universities',
+              'The strategy paid off: search market share rose from the 30% range to over 70% in three years',
               'Explained Naver\u2019s strategy publicly through interviews with the Financial Times and BusinessWeek',
             ], tags:['500-person org','Search','Partnerships'] },
           { period:'2004 — 2005', title:'e마케팅사업부장', titleEn:'VP, e-Marketing Business Unit',
             bullets:[
-              'Oversaw the display advertising and search advertising businesses',
+              'Display and search advertising business',
             ], tags:['Display Ads','Search Ads'] },
           { period:'2000 — 2004', title:'e마케팅팀장', titleEn:'Head of e-Marketing',
             bullets:[
@@ -365,10 +390,10 @@ const T = {
     copied: 'Email address copied.',
   },
   kr: {
-    label: 'Resume & History',
+    label: 'RESUME',
     name: '최재현',
     nameAlt: 'Jaehyeon Choi',
-    tagline: '광고대행사에서 네이버, 그리고 AI 창업까지. 30여 년간 광고·플랫폼 비즈니스를 만들어온 대표.',
+    tagline: '광고대행사에서 IT기업, 그리고 스타트업 창업까지. 30년간 광고·서비스·제휴·플랫폼비즈니스를 만들어온 여정.',
     tabs: ['ABOUT','CAREER','NOW','EDU','BUILD','CONTACT'],
     sections: {
       ABOUT: { title: '소개', html: `
@@ -376,7 +401,15 @@ const T = {
           <div class="period">PROFILE</div>
           <h3>최재현</h3>
           <div class="subtitle">Jaehyeon Choi</div>
-          <p class="about-lead">광고·인터넷 플랫폼·AI 제품을 아우르는 30여 년 경력의 경영자. 네이버 광고사업을 3년 만에 연 매출 20억 원에서 800억 원으로 성장시켰고, 500명 규모의 서비스 부문을 이끌었으며, 미국 법인을 4년간 운영했습니다. 2018년 AI 제품 회사를 창업해 월 활성 사용자 40만 명 규모로 키웠습니다.</p>
+          <p class="about-lead">광고·인터넷서비스·플랫폼·AI를 아우르는 계속되는 도전.</p>
+          <ul class="bullets">
+            <li>네이버 광고사업부문을 맡아 3년 만에 연 매출 20억 원에서 800억 원으로 성장시켰습니다.</li>
+            <li>급성장한 네이버에서 500명 규모의 네이버서비스 부문을 이끌면서 압도적인 검색서비스점유를 만들었습니다.</li>
+            <li>검색서비스의 가장 강력한 사업자인 구글이 한국에 진출했을 때 검색서비스를 재정의하고 네이버만의 경쟁력을 만들어서 방어했습니다. 구글의 강력한 검색엔진을 방어해서 생존한, 세계적으로도 거의 유례가 없는 사례를 만들었다는 자부심이 있습니다.</li>
+            <li>제휴영업을 통해 TV광고주 중 80% 이상을 네이버 검색창에서 자사 브랜드를 검색해보라는 자막을 넣게 만들었습니다.</li>
+            <li>미국 법인을 4년간 경영하면서 비록 소규모이지만 글로벌회사를 경영하는 소중한 경험을 하였습니다.</li>
+            <li>2018년 채팅형 소설 플랫폼서비스를 만들어서 기관투자자로부터 100억 원의 자금을 투자받았으며, 월 활성 사용자 20만 명 규모로 키웠습니다.</li>
+          </ul>
           <div class="tags">
             <span class="tag gold">광고·플랫폼</span>
             <span class="tag">글로벌 사업(미주법인)</span>
@@ -391,18 +424,18 @@ const T = {
         <div class="card">
           <div class="period">PRESS</div>
           <ul class="bullets">
-            <li>Financial Times (2007)</li>
-            <li>BusinessWeek (2006)</li>
-            <li>전자신문 칼럼 기고 (2007)</li>
+            <li><a class="press-link" href="https://n.news.naver.com/mnews/article/031/0000098825?sid=105" target="_blank" rel="noopener noreferrer">Financial Times 인터뷰 (2007.1) · 아이뉴스24 보도 「네이버 경쟁력은 UCC」<span class="arrow">↗</span></a></li>
+            <li><a class="press-link" href="https://n.news.naver.com/mnews/article/018/0000349225?sid=105" target="_blank" rel="noopener noreferrer">BusinessWeek 인용 (2006.1) · 이데일리 보도 「구글, 한국의 네이버에게 배워라」<span class="arrow">↗</span></a></li>
+            <li><a class="press-link" href="https://www.etnews.com/200701180131" target="_blank" rel="noopener noreferrer">전자신문 기고 칼럼 (2007.1) 「롱테일 법칙과 도서검색」<span class="arrow">↗</span></a></li>
           </ul>
         </div>`},
       CAREER: {
         title: '경력',
         footnote: '네이버는 NHN으로 사명이 바뀌었다가 다시 네이버로 변경되었습니다.',
         items: [
-          { period:'2018 — 현재', title:'아이네블루메 대표 (창업)', titleEn:'Founder & CEO, Eineblu',
+          { period:'2018 — 현재', title:'아이네블루메 대표 (창업)', titleEn:'Founder & CEO, Eineblume',
             bullets:[
-              'AI 캐릭터 채팅·창작 플랫폼 \u2018채티(Chatie)\u2019 운영, 월 활성 사용자 약 40만 명',
+              '채팅형 소설/AI 캐릭터 채팅 플랫폼 \u2018채티(Chatie)\u2019 운영, 월 활성 사용자 약 20만 명',
               '하루 1,000편 이상의 창작물이 쏟아지는 10대 소설 창작 열풍을 주도',
             ], tags:['창업','CEO','AI Platform'] },
           { period:'2016 — 2017', title:'창업 준비, 엔젤 투자자', titleEn:'Angel Investor & VC Fund LP',
@@ -411,13 +444,13 @@ const T = {
             ], tags:['엔젤 투자','LP'] },
           { period:'2015 — 2016', title:'네이버 고문', titleEn:'Senior Advisor, Naver',
             bullets:[], tags:['Advisor'] },
-          { period:'2013 — 2015', title:'광고사업전략 총괄', titleEn:'Head of Advertising Strategy, Naver',
+          { period:'2013 — 2015', title:'디스플레이 광고사업전략 총괄', titleEn:'Head of Display Advertising Strategy, Naver',
             bullets:[
               '한국에서 광고사업 전략을 지휘',
             ], tags:['광고 전략','Executive'] },
           { period:'2008 — 2012', title:'NHN USA 미주법인장', titleEn:'President, NHN USA',
             bullets:[
-              '미국 캘리포니아 Irvine 소재 법인을 약 50명 규모로 운영',
+              '미국 캘리포니아 Irvine 소재 법인을 운영. 게임퍼블리싱과 네이버 현지화 실행.',
             ], tags:['해외 사업','미국'] },
           { period:'2007 — 2008', title:'사업개발담당', titleEn:'VP, Business Development',
             bullets:[
@@ -426,14 +459,14 @@ const T = {
           { period:'2005 — 2007', title:'네이버부문장 (500명 규모)', titleEn:'SVP & Head of Naver Division (~500 people)',
             bullets:[
               '서비스기획, 브랜드마케팅, 디자인, 운영, 개발을 총괄',
-              '검색 경쟁력을 알고리즘이 아닌 콘텐츠 확보의 관점에서 재정의 (오프라인 지식은 디지털화, 온라인 지식은 제휴, 없는 것은 커뮤니티·블로그·지식iN으로 직접 생성)',
-              '정부기관(국회도서관, 통계청, 특허청, 국립국어원, 서울시, 외교부), 협회, 엔터테인먼트, 출판사, 방송사·신문사, 대학과 전방위 제휴를 지휘',
-              '이 전략을 거치며 검색 점유율이 3년간 30%에서 75%로 상승',
+              '검색 경쟁력을 알고리즘이 아닌 콘텐츠 확보의 관점에서 재정의 (오프라인 지식은 디지털화, 온라인 지식은 제휴, 콘텐츠가 존재하지 않는 것은 커뮤니티·블로그·지식iN으로 직접 생성)',
+              '정부기관(국회도서관, 통계청, 특허청, 국립국어원, 서울시, 외교부), 협회, 엔터테인먼트기업, 출판사, 방송사·신문사, 대학과 전방위 제휴를 지휘',
+              '이 전략은 적중했으며 검색 점유율이 3년간 30%대에서 70% 이상으로 상승',
               '파이낸셜타임스, 비즈니스위크 인터뷰를 통해 네이버의 전략을 대외에 설명',
             ], tags:['500명 조직','검색','제휴'] },
           { period:'2004 — 2005', title:'e마케팅사업부장', titleEn:'VP, e-Marketing Business Unit',
             bullets:[
-              '디스플레이 광고와 검색 광고 사업을 총괄',
+              '디스플레이 광고와 검색 광고 사업',
             ], tags:['디스플레이 광고','검색 광고'] },
           { period:'2000 — 2004', title:'e마케팅팀장', titleEn:'Head of e-Marketing',
             bullets:[
