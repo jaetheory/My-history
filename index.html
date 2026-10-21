@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>최재현 — Jaehyeon Choi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#1a2e2a;
+    --forest-2:#24413b;
+    --moss:#5b7a6b;
+    --bg:#f4f6f3;
+    --card:#fbfcfa;
+    --gold:#b8935a;
+    --gold-light:#d9c199;
+    --ink:#1f2c28;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  button{font-family:inherit}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:'Noto Sans KR',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.6;
+  }
+  .app{
+    max-width:640px;
+    margin:0 auto;
+    min-height:100vh;
+    background:var(--bg);
+    display:flex;
+    flex-direction:column;
+  }
+  @media (min-width:641px){
+    body{background:#e4e9e3}
+    .app{box-shadow:0 0 40px rgba(26,46,42,.12)}
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    background:linear-gradient(135deg,var(--forest) 0%,var(--forest-2) 100%);
+    color:#fff;
+    padding:52px 24px 30px;
+    position:relative;
+  }
+  .header-label{
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.32em;
+    color:var(--gold-light);
+    text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .header-name{
+    font-size:34px;
+    font-weight:900;
+    line-height:1.2;
+    letter-spacing:-.01em;
+  }
+  .header-name .en{display:block;font-size:15px;font-weight:400;color:rgba(255,255,255,.72);margin-top:6px;letter-spacing:.02em}
+  .header-tag{
+    margin-top:16px;
+    font-size:13.5px;
+    font-weight:300;
+    color:rgba(255,255,255,.82);
+    max-width:88%;
+  }
+  .lang-switch{
+    position:absolute;
+    top:16px;
+    right:16px;
+    display:flex;
+    border:1px solid rgba(217,193,153,.5);
+    border-radius:999px;
+    overflow:hidden;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.08em;
+  }
+  .lang-switch button{
+    appearance:none;border:0;background:transparent;color:rgba(255,255,255,.65);
+    padding:5px 12px;cursor:pointer;font:inherit;
+  }
+  .lang-switch button.on{background:var(--gold);color:var(--forest)}
+
+  /* ---------- Tabs ---------- */
+  .tabbar{
+    position:sticky;top:0;z-index:10;
+    background:var(--bg);
+    border-bottom:1px solid rgba(91,122,107,.18);
+    display:flex;
+    overflow-x:auto;
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+    padding:0 8px;
+  }
+  .tabbar::-webkit-scrollbar{display:none}
+  .tab{
+    flex:0 0 auto;
+    appearance:none;border:0;background:transparent;cursor:pointer;
+    font:inherit;font-size:13px;font-weight:700;letter-spacing:.14em;
+    color:var(--moss);
+    padding:15px 16px 13px;
+    position:relative;
+    white-space:nowrap;
+  }
+  .tab::after{
+    content:"";position:absolute;left:12px;right:12px;bottom:0;
+    height:3px;border-radius:3px 3px 0 0;
+    background:transparent;
+  }
+  .tab.on{color:var(--forest)}
+  .tab.on::after{background:var(--gold)}
+
+  /* ---------- Content ---------- */
+  main{flex:1;padding:20px 16px 28px}
+  .panel{display:none}
+  .panel.on{display:block;animation:fade .25s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  .section-title{
+    font-size:11px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--gold);margin:4px 4px 14px;
+  }
+
+  .card{
+    background:var(--card);
+    border:1px solid rgba(91,122,107,.14);
+    border-radius:16px;
+    padding:20px;
+    margin-bottom:14px;
+    box-shadow:0 2px 10px rgba(26,46,42,.05);
+  }
+  .card .period{
+    font-size:12px;font-weight:500;color:var(--gold);
+    letter-spacing:.04em;margin-bottom:6px;
+  }
+  .card h3{
+    font-size:16.5px;font-weight:700;color:var(--forest);
+    line-height:1.4;margin-bottom:6px;
+  }
+  .card p{font-size:14px;color:#41534c;font-weight:300;word-break:keep-all}
+  .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .tag{
+    font-size:11px;font-weight:500;letter-spacing:.03em;
+    color:var(--moss);
+    background:rgba(91,122,107,.1);
+    border:1px solid rgba(91,122,107,.2);
+    padding:3px 10px;border-radius:999px;
+  }
+  .tag.gold{color:var(--gold);background:rgba(184,147,90,.09);border-color:rgba(184,147,90,.3)}
+
+  .about-lead{
+    font-size:15.5px;font-weight:400;color:var(--forest);
+    word-break:keep-all;
+  }
+
+  /* ---------- Contact ---------- */
+  .contact-mail{
+    font-size:17px;font-weight:700;color:var(--forest);
+    word-break:break-all;margin:2px 0 16px;
+  }
+  .btn-row{display:flex;gap:10px;flex-wrap:wrap}
+  .btn{
+    flex:1;min-width:130px;
+    display:inline-flex;align-items:center;justify-content:center;gap:6px;
+    font-size:13.5px;font-weight:700;letter-spacing:.02em;
+    padding:13px 18px;border-radius:12px;cursor:pointer;
+    text-decoration:none;text-align:center;
+    border:1px solid transparent;
+    transition:opacity .15s ease;
+  }
+  .btn:active{opacity:.85}
+  .btn-primary{background:var(--forest);color:#fff}
+  .btn-ghost{background:transparent;color:var(--forest);border-color:rgba(26,46,42,.3)}
+  .copied-msg{
+    margin-top:10px;font-size:12.5px;color:var(--gold);
+    min-height:19px;font-weight:500;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    padding:18px 0 26px;text-align:center;
+    font-size:11px;letter-spacing:.12em;color:var(--moss);
+  }
+  footer .gold{color:var(--gold);font-weight:700}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <header>
+    <div class="lang-switch" role="group" aria-label="language">
+      <button id="btn-kr" class="on" type="button">KR</button>
+      <button id="btn-en" type="button">EN</button>
+    </div>
+    <div class="header-label" id="hdr-label"></div>
+    <h1 class="header-name"><span id="hdr-name"></span><span class="en" id="hdr-name-en"></span></h1>
+    <p class="header-tag" id="hdr-tag"></p>
+  </header>
+
+  <nav class="tabbar" id="tabbar" aria-label="sections"></nav>
+
+  <main id="main"></main>
+
+  <footer>Built with <span class="gold">Devin</span></footer>
+</div>
+
+<script>
+const T = {
+  kr: {
+    label: 'Resume & History',
+    name: '최재현',
+    nameEn: 'Jaehyeon Choi',
+    tagline: '광고대행사에서 네이버, 그리고 창업까지. 30여 년간 광고·플랫폼 비즈니스를 만들어온 대표.',
+    tabs: ['ABOUT','CAREER','NOW','EDU','BUILD','CONTACT'],
+    sections: {
+      ABOUT: { title: '소개', html: `
+        <div class="card">
+          <div class="period">PROFILE</div>
+          <h3>최재현 (Jaehyeon Choi)</h3>
+          <p class="about-lead">광고대행사에서 네이버, 그리고 창업까지.<br>30여 년간 광고·플랫폼 비즈니스를 만들어온 대표.</p>
+          <div class="tags">
+            <span class="tag gold">Founder & CEO</span>
+            <span class="tag">Platform Business</span>
+            <span class="tag">Advertising</span>
+          </div>
+        </div>`},
+      CAREER: { title: '경력', items: [
+        { period:'2018 — 현재', title:'주식회사 아이네블루메 — 대표 · 창업', desc:"채팅형소설 및 AI 캐릭터 채팅 플랫폼 '채티(Chatie)' 운영", tags:['창업','CEO','AI Platform'] },
+        { period:'2015', title:'네이버 — 고문', desc:'경영·사업 자문', tags:['Advisor'] },
+        { period:'2013 — 2015', title:'네이버 — DA광고사업전략 총괄', desc:'디스플레이 광고 사업 전략 총괄', tags:['광고 전략','Executive'] },
+        { period:'2008 — 2012', title:'NHN USA — 미주법인장', desc:'캘리포니아 Irvine, 약 50명 조직', tags:['해외 사업','미국'] },
+        { period:'2005 — 2008', title:'네이버 — 부문장 (약 500명 조직)', desc:'네이버서비스기획본부장, 사업개발담당', tags:['서비스 기획','사업개발'] },
+        { period:'2000 — 2005', title:'네이버 — e마케팅팀장 → e마케팅사업부장', desc:'온라인 마케팅 사업 총괄', tags:['마케팅','광고'] },
+        { period:'1993 — 2000', title:'광고기획 AE', desc:'LG애드, 코래드, 제일기획', tags:['광고대행사','AE'] },
+      ]},
+      NOW: { title: '지금 하는 일', items: [
+        { period:'CURRENT', title:'채티(Chatie) 운영', desc:'채팅형소설 및 AI 캐릭터 채팅 플랫폼 운영', tags:['AI','Chatie','Platform'] },
+        { period:'HOBBY', title:'AI 코딩', desc:'AI 코딩 도구로 직접 앱을 만들어 쓰는 것을 즐깁니다', tags:['Devin','Vibe Coding'] },
+      ]},
+      EDU: { title: '학력', items: [
+        { period:'— 1993', title:'고려대학교 사학과 졸업', desc:'서울캠퍼스 인문대학', tags:['Korea University','History'] },
+      ]},
+      BUILD: { title: '이 사이트에 대하여', html: `
+        <div class="card">
+          <div class="period">HOW IT WAS MADE</div>
+          <h3>말로 지시해서 만든 사이트</h3>
+          <p>이 사이트는 개발 비전공자인 CEO가 AI 소프트웨어 엔지니어 Devin에게 말로 지시해서 만들었습니다.<br>
+          디자인과 내용은 사람이 정하고, 코드는 Devin이 작성했습니다.<br>
+          하나의 HTML 파일로 이루어져 있으며 GitHub Pages로 배포되었습니다.</p>
+          <div class="tags">
+            <span class="tag gold">Devin</span>
+            <span class="tag">AI Software Engineer</span>
+            <span class="tag">GitHub Pages</span>
+          </div>
+        </div>`},
+      CONTACT: { title: '연락처', html: `
+        <div class="card">
+          <div class="period">EMAIL</div>
+          <div class="contact-mail">jae@eineblu.me</div>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="mailto:jae@eineblu.me" id="btn-mail"></a>
+            <button class="btn btn-ghost" type="button" id="btn-copy"></button>
+          </div>
+          <div class="copied-msg" id="copied"></div>
+        </div>`},
+    },
+    mail: '이메일 보내기',
+    copy: '주소 복사',
+    copied: '이메일 주소가 복사되었습니다.',
+  },
+  en: {
+    label: 'Resume & History',
+    name: 'Jaehyeon Choi',
+    nameEn: '최재현',
+    tagline: 'From ad agencies to Naver to founding a startup — 30 years of building advertising and platform businesses.',
+    tabs: ['ABOUT','CAREER','NOW','EDU','BUILD','CONTACT'],
+    sections: {
+      ABOUT: { title: 'About', html: `
+        <div class="card">
+          <div class="period">PROFILE</div>
+          <h3>Jaehyeon Choi (최재현)</h3>
+          <p class="about-lead">From ad agencies to Naver to founding a startup.<br>30 years of building advertising and platform businesses.</p>
+          <div class="tags">
+            <span class="tag gold">Founder & CEO</span>
+            <span class="tag">Platform Business</span>
+            <span class="tag">Advertising</span>
+          </div>
+        </div>`},
+      CAREER: { title: 'Career', items: [
+        { period:'2018 — Present', title:'Eineblu Co., Ltd. — Founder & CEO', desc:"Operating 'Chatie', a chat-fiction and AI character chat platform", tags:['Founder','CEO','AI Platform'] },
+        { period:'2015', title:'Naver — Advisor', desc:'Management and business advisory', tags:['Advisor'] },
+        { period:'2013 — 2015', title:'Naver — Head of DA Ad Business Strategy', desc:'Display advertising business strategy', tags:['Ad Strategy','Executive'] },
+        { period:'2008 — 2012', title:'NHN USA — President, North America', desc:'Irvine, California — organization of ~50', tags:['Overseas Business','USA'] },
+        { period:'2005 — 2008', title:'Naver — Division Head (~500 people)', desc:'Head of Service Planning HQ, Business Development', tags:['Service Planning','BizDev'] },
+        { period:'2000 — 2005', title:'Naver — e-Marketing Team Lead → e-Marketing Division Head', desc:'Online marketing business leadership', tags:['Marketing','Advertising'] },
+        { period:'1993 — 2000', title:'Advertising Account Executive', desc:'LG Ad, Korad, Cheil Worldwide', tags:['Ad Agency','AE'] },
+      ]},
+      NOW: { title: 'Now', items: [
+        { period:'CURRENT', title:'Running Chatie', desc:'Operating a chat-fiction and AI character chat platform', tags:['AI','Chatie','Platform'] },
+        { period:'HOBBY', title:'AI Coding', desc:'Enjoys building apps for himself with AI coding tools', tags:['Devin','Vibe Coding'] },
+      ]},
+      EDU: { title: 'Education', items: [
+        { period:'— 1993', title:'Korea University, B.A. in History', desc:'College of Liberal Arts, Seoul', tags:['Korea University','History'] },
+      ]},
+      BUILD: { title: 'About this site', html: `
+        <div class="card">
+          <div class="period">HOW IT WAS MADE</div>
+          <h3>A site built by spoken instruction</h3>
+          <p>This site was built by a non-developer CEO giving spoken instructions to Devin, an AI software engineer.<br>
+          The design and content were decided by a human; the code was written by Devin.<br>
+          It is a single HTML file, deployed on GitHub Pages.</p>
+          <div class="tags">
+            <span class="tag gold">Devin</span>
+            <span class="tag">AI Software Engineer</span>
+            <span class="tag">GitHub Pages</span>
+          </div>
+        </div>`},
+      CONTACT: { title: 'Contact', html: `
+        <div class="card">
+          <div class="period">EMAIL</div>
+          <div class="contact-mail">jae@eineblu.me</div>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="mailto:jae@eineblu.me" id="btn-mail"></a>
+            <button class="btn btn-ghost" type="button" id="btn-copy"></button>
+          </div>
+          <div class="copied-msg" id="copied"></div>
+        </div>`},
+    },
+    mail: 'Send email',
+    copy: 'Copy address',
+    copied: 'Email address copied.',
+  },
+};
+
+const ORDER = ['ABOUT','CAREER','NOW','EDU','BUILD','CONTACT'];
+let lang = 'kr';
+let active = 'ABOUT';
+
+const tabbar = document.getElementById('tabbar');
+const main = document.getElementById('main');
+
+function cardHtml(item){
+  const tags = (item.tags||[]).map((t,i)=>`<span class="tag${i===0?' gold':''}">${t}</span>`).join('');
+  return `<div class="card">
+    <div class="period">${item.period}</div>
+    <h3>${item.title}</h3>
+    ${item.desc?`<p>${item.desc}</p>`:''}
+    ${tags?`<div class="tags">${tags}</div>`:''}
+  </div>`;
+}
+
+function renderTabs(){
+  const t = T[lang];
+  tabbar.innerHTML = t.tabs.map(name=>
+    `<button type="button" class="tab${name===active?' on':''}" data-tab="${name}">${name}</button>`
+  ).join('');
+}
+
+function renderMain(){
+  const t = T[lang];
+  main.innerHTML = ORDER.map(name=>{
+    const s = t.sections[name];
+    const body = s.html !== undefined ? s.html : s.items.map(cardHtml).join('');
+    return `<section class="panel${name===active?' on':''}" id="panel-${name}">
+      <div class="section-title">${s.title}</div>${body}</section>`;
+  }).join('');
+
+  document.getElementById('btn-mail').textContent = t.mail;
+  document.getElementById('btn-copy').textContent = t.copy;
+  document.getElementById('btn-copy').addEventListener('click', async ()=>{
+    const msg = document.getElementById('copied');
+    try{
+      await navigator.clipboard.writeText('jae@eineblu.me');
+      msg.textContent = t.copied;
+    }catch(e){
+      const ta = document.createElement('textarea');
+      ta.value = 'jae@eineblu.me';
+      document.body.appendChild(ta); ta.select();
+      document.execCommand('copy'); ta.remove();
+      msg.textContent = t.copied;
+    }
+    setTimeout(()=>{ msg.textContent=''; }, 2500);
+  });
+}
+
+function renderHeader(){
+  const t = T[lang];
+  document.getElementById('hdr-label').textContent = t.label;
+  document.getElementById('hdr-name').textContent = t.name;
+  document.getElementById('hdr-name-en').textContent = t.nameEn;
+  document.getElementById('hdr-tag').textContent = t.tagline;
+  document.getElementById('btn-kr').classList.toggle('on', lang==='kr');
+  document.getElementById('btn-en').classList.toggle('on', lang==='en');
+  document.documentElement.lang = lang;
+}
+
+function render(){
+  renderHeader(); renderTabs(); renderMain();
+}
+
+function activate(name, push=true){
+  active = name;
+  document.querySelectorAll('.tab').forEach(b=>{
+    const on = b.dataset.tab===name;
+    b.classList.toggle('on', on);
+    if(on) b.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+  });
+  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on', p.id==='panel-'+name));
+  if(push) history.replaceState(null,'','#'+name.toLowerCase());
+}
+
+tabbar.addEventListener('click', e=>{
+  const b = e.target.closest('.tab');
+  if(b) activate(b.dataset.tab);
+});
+document.getElementById('btn-kr').addEventListener('click', ()=>{ if(lang!=='kr'){lang='kr';render();} });
+document.getElementById('btn-en').addEventListener('click', ()=>{ if(lang!=='en'){lang='en';render();} });
+
+const h = location.hash.replace('#','').toUpperCase();
+if(ORDER.includes(h)) active = h;
+render();
+</script>
+</body>
+</html>
