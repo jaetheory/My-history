@@ -69,7 +69,7 @@
   }
   .header-name{
     font-size:34px;
-    font-weight:900;
+    font-weight:800;
     line-height:1.2;
     letter-spacing:-.01em;
   }
@@ -80,6 +80,16 @@
     font-weight:300;
     color:rgba(255,255,255,.82);
     max-width:88%;
+  }
+  .header-tag .kw{
+    display:inline-block;
+    background:var(--gold);
+    color:var(--forest);
+    font-weight:700;
+    padding:1px 11px 2px;
+    border-radius:999px;
+    margin:0 1px;
+    letter-spacing:.02em;
   }
   .lang-switch{
     position:absolute;
@@ -114,7 +124,7 @@
   .tab{
     flex:0 0 auto;
     appearance:none;border:0;background:transparent;cursor:pointer;
-    font:inherit;font-size:13px;font-weight:700;letter-spacing:.14em;
+    font:inherit;font-size:13px;font-weight:600;letter-spacing:.12em;
     color:var(--moss);
     padding:15px 16px 13px;
     position:relative;
@@ -141,11 +151,11 @@
 
   .card{
     background:var(--card);
-    border:1px solid rgba(91,122,107,.14);
-    border-radius:16px;
-    padding:20px;
+    border:1px solid rgba(91,122,107,.11);
+    border-radius:22px;
+    padding:22px;
     margin-bottom:14px;
-    box-shadow:0 2px 10px rgba(26,46,42,.05);
+    box-shadow:0 6px 18px rgba(26,46,42,.06);
   }
   .card .period{
     font-size:12px;font-weight:500;color:var(--gold);
@@ -181,9 +191,9 @@
   .tag{
     font-size:11px;font-weight:500;letter-spacing:.03em;
     color:var(--moss);
-    background:rgba(91,122,107,.1);
-    border:1px solid rgba(91,122,107,.2);
-    padding:3px 10px;border-radius:999px;
+    background:rgba(91,122,107,.08);
+    border:1px solid rgba(91,122,107,.16);
+    padding:4px 11px;border-radius:999px;
   }
   .tag.gold{color:var(--gold);background:rgba(184,147,90,.09);border-color:rgba(184,147,90,.3)}
 
@@ -207,7 +217,7 @@
     flex:1;min-width:130px;
     display:inline-flex;align-items:center;justify-content:center;gap:6px;
     font-size:13.5px;font-weight:700;letter-spacing:.02em;
-    padding:13px 18px;border-radius:12px;cursor:pointer;
+    padding:13px 18px;border-radius:16px;cursor:pointer;
     text-decoration:none;text-align:center;
     border:1px solid transparent;
     transition:opacity .15s ease;
@@ -254,7 +264,7 @@ const T = {
     label: 'RESUME',
     name: 'Jaehyeon Choi',
     nameAlt: '최재현',
-    tagline: 'From ad agency to internet company to startup founder: a 30-year journey building advertising, service, partnership, and platform businesses.',
+    tagline: 'From ad agency to internet company to startup founder: a 30-year journey building advertising, service, partnership, and platform businesses. His keyword: <span class="kw">challenge</span>',
     tabs: ['ABOUT','CAREER','NOW','EDU','BUILD','CONTACT'],
     sections: {
       ABOUT: { title: 'About', html: `
@@ -264,10 +274,10 @@ const T = {
           <div class="subtitle">최재현</div>
           <p class="about-lead">An ongoing challenge spanning advertising, internet services, platforms, and AI.</p>
           <ul class="bullets">
-            <li>Took charge of Naver's advertising business and grew annual revenue from KRW 2 billion to KRW 80 billion in three years (~US$1.5M to ~US$60M).</li>
-            <li>Led Naver's 500-person service division through its rapid growth, building a dominant share of the search market.</li>
+            <li>Took charge of Naver's advertising business and grew annual revenue 40x in three years. The internet itself was booming, but growth of this scale became a talking point across the industry.</li>
+            <li>Led Naver's 500-person service division through its rapid growth, building a dominant share of the search market — back when search share was the metric that mattered most, a do-or-die challenge for Naver, which lagged Google technically just as Google entered Korea.</li>
             <li>When Google, the strongest player in search, entered Korea, redefined search and built a competitive edge unique to Naver to hold it off. I take pride in creating one of the few cases in the world where a local search service held its ground against Google.</li>
-            <li>Through partnership sales, got more than 80% of TV advertisers to put an on-screen caption on their commercials urging viewers to search for their brand on Naver.</li>
+            <li>Through partnership sales, got more than 70% of the top 100 TV advertisers to add an on-screen caption urging viewers to search for their brand on Naver — keeping the Naver search box on air across countless commercials and continually nudging viewers to try Naver search.</li>
             <li>Ran the U.S. subsidiary for four years. It was a small operation, but a valuable experience in running a global company.</li>
             <li>Built a chat-style fiction platform starting in 2018, secured KRW 10 billion (~US$7.5M) in investment from institutional investors, and grew it to 200K monthly active users.</li>
           </ul>
@@ -313,7 +323,7 @@ const T = {
             bullets:[
               'Ran the subsidiary in Irvine, California, executing game publishing and the localization of Naver for the U.S. market',
             ], tags:['Overseas Business','USA'] },
-          { period:'2007 — 2008', title:'사업개발담당', titleEn:'VP, Business Development',
+          { period:'2007 — 2008', title:'사업개발 SVP', titleEn:'SVP, Business Development',
             bullets:[
               'Led strategy development, external relations, and content sourcing partnerships after the Naver division spin-off',
             ], tags:['BizDev','Partnerships'] },
@@ -334,7 +344,7 @@ const T = {
               'Grew ad revenue from ~US$1.5M to ~US$60M in three years (2000–2003)',
               'Led the introduction of keyword-targeted advertising, which grew to 80% of total ad revenue',
             ], tags:['Ad Revenue','Keyword Ads'] },
-          { period:'1993 — 2000', title:'광고기획 AE', titleEn:'Account Executive — LG Ad, Korad, Cheil Worldwide',
+          { period:'1993 — 2000', title:'광고기획 AE', titleEn:'Account Executive — LG Ad, Korad Ogilvy&Mather, Cheil Worldwide',
             bullets:[
               'Handled advertising for Samsung financial affiliates including Samsung Life and Samsung Securities at Cheil Worldwide',
             ], tags:['Ad Agency','AE'] },
@@ -344,7 +354,7 @@ const T = {
           bullets:['Operating a chat-fiction and AI character chat platform'],
           tags:['AI','Chatie','Platform'] },
         { period:'HOBBY', title:'AI 코딩', titleEn:'AI Coding',
-          bullets:['Enjoys building apps for himself with AI coding tools'],
+          bullets:['Enjoys building apps for himself with AI coding tools. An era is coming where everyone can build — people will make and use their own websites and apps as needed, and one-off, never-published apps will proliferate'],
           tags:['Devin','Vibe Coding'] },
       ]},
       EDU: { title: 'Education', items: [
@@ -354,12 +364,13 @@ const T = {
       BUILD: { title: 'How this was built', html: `
         <div class="card">
           <div class="period">A THROWAWAY TRAVEL APP</div>
-          <h3>Claude-built app for a Japan trip</h3>
+          <h3>Built an app with Claude while preparing a trip to Japan</h3>
           <ul class="bullets">
             <li>On a recent trip to Japan, I had Claude build a one-off travel app just for me.</li>
             <li>It pulled flights, rental car, and hotel details into one place, showed the itinerary day by day in tabs, and put a map link on every leg — no digging through my bag or typing addresses.</li>
             <li>I am enjoying a world where coding is no longer only for developers.</li>
           </ul>
+          <p style="margin-top:12px"><a class="press-link" href="https://jaetheory.github.io/Japan-trip/" target="_blank" rel="noopener noreferrer">Niseko Family Trip · Zaborin<span class="arrow">↗</span></a></p>
           <div class="tags">
             <span class="tag gold">Claude</span>
             <span class="tag">Vibe Coding</span>
@@ -393,7 +404,7 @@ const T = {
     label: 'RESUME',
     name: '최재현',
     nameAlt: 'Jaehyeon Choi',
-    tagline: '광고대행사에서 IT기업, 그리고 스타트업 창업까지. 30년간 광고·서비스·제휴·플랫폼비즈니스를 만들어온 여정.',
+    tagline: '광고대행사에서 IT기업, 그리고 스타트업 창업까지. 30년간 광고·서비스·제휴·플랫폼비즈니스를 만들어온 여정. 그의 키워드는 <span class="kw">도전</span>',
     tabs: ['ABOUT','CAREER','NOW','EDU','BUILD','CONTACT'],
     sections: {
       ABOUT: { title: '소개', html: `
@@ -403,10 +414,10 @@ const T = {
           <div class="subtitle">Jaehyeon Choi</div>
           <p class="about-lead">광고·인터넷서비스·플랫폼·AI를 아우르는 계속되는 도전.</p>
           <ul class="bullets">
-            <li>네이버 광고사업부문을 맡아 3년 만에 연 매출 20억 원에서 800억 원으로 성장시켰습니다.</li>
-            <li>급성장한 네이버에서 500명 규모의 네이버서비스 부문을 이끌면서 압도적인 검색서비스점유를 만들었습니다.</li>
+            <li>네이버 광고사업부문을 맡아 3년 만에 연 매출을 40배 성장시켰습니다. 인터넷의 성장기이기도 했지만 이를 훨씬 상회하는 매출성장은 업계에서도 화두가 되었습니다.</li>
+            <li>급성장한 네이버에서 500명 규모의 네이버서비스 부문을 이끌면서 압도적인 검색서비스점유를 만들었습니다. 당시에는 검색점유율이 가장 중요한 시기였으며 한국에 진출한 구글에 비해 기술적인 열위에 있었던 네이버에게는 절체절명의 과제이기도 했습니다.</li>
             <li>검색서비스의 가장 강력한 사업자인 구글이 한국에 진출했을 때 검색서비스를 재정의하고 네이버만의 경쟁력을 만들어서 방어했습니다. 구글의 강력한 검색엔진을 방어해서 생존한, 세계적으로도 거의 유례가 없는 사례를 만들었다는 자부심이 있습니다.</li>
-            <li>제휴영업을 통해 TV광고주 중 80% 이상을 네이버 검색창에서 자사 브랜드를 검색해보라는 자막을 넣게 만들었습니다.</li>
+            <li>제휴영업을 통해 100대 TV광고주 중 70% 이상을 네이버 검색창에서 자사 브랜드를 검색해보라는 자막을 넣게 만들었습니다. 이로서 네이버는 다양한 TV광고 커머셜에서 네이버검색창을 지속적으로 노출시킬 수 있었을 뿐 아니라 시청자들로 하여금 네이버검색을 사용하게 지속적으로 유도할 수 있었습니다.</li>
             <li>미국 법인을 4년간 경영하면서 비록 소규모이지만 글로벌회사를 경영하는 소중한 경험을 하였습니다.</li>
             <li>2018년 채팅형 소설 플랫폼서비스를 만들어서 기관투자자로부터 100억 원의 자금을 투자받았으며, 월 활성 사용자 20만 명 규모로 키웠습니다.</li>
           </ul>
@@ -452,7 +463,7 @@ const T = {
             bullets:[
               '미국 캘리포니아 Irvine 소재 법인을 운영. 게임퍼블리싱과 네이버 현지화 실행.',
             ], tags:['해외 사업','미국'] },
-          { period:'2007 — 2008', title:'사업개발담당', titleEn:'VP, Business Development',
+          { period:'2007 — 2008', title:'사업개발 SVP', titleEn:'SVP, Business Development',
             bullets:[
               '네이버부문 분할 이후 전략 개발, 대외 업무, 콘텐츠 소싱 제휴를 총괄',
             ], tags:['사업개발','제휴'] },
@@ -473,7 +484,7 @@ const T = {
               '광고 매출을 3년(2000~2003) 만에 20억 원에서 800억 원으로 성장',
               '키워드 타게팅 광고 도입을 주도해 전체 광고 매출의 80%를 차지하는 사업으로 성장',
             ], tags:['광고 매출','키워드 광고'] },
-          { period:'1993 — 2000', title:'광고기획 AE', titleEn:'Account Executive — LG Ad, Korad, Cheil Worldwide',
+          { period:'1993 — 2000', title:'광고기획 AE', titleEn:'Account Executive — LG Ad, Korad Ogilvy&Mather, Cheil Worldwide',
             bullets:[
               '제일기획에서 삼성생명, 삼성증권 등 삼성 금융계열사 광고를 담당',
             ], tags:['광고대행사','AE'] },
@@ -483,7 +494,7 @@ const T = {
           bullets:['채팅형소설 및 AI 캐릭터 채팅 플랫폼 운영'],
           tags:['AI','Chatie','Platform'] },
         { period:'HOBBY', title:'AI 코딩', titleEn:'AI Coding',
-          bullets:['AI 코딩 도구로 직접 앱을 만들어 쓰는 것을 즐김'],
+          bullets:['AI 코딩 도구로 직접 앱을 만들어 쓰는 것을 즐김. 앞으로 모두가 개발을 할 수 있는 시대가 올 것이며 각자가 필요에 따라 웹사이트/앱을 만들고 사용하게 될 것임. 퍼블리시하지 않는 1회용 앱의 제작이 많아질 것으로 전망'],
           tags:['Devin','Vibe Coding'] },
       ]},
       EDU: { title: '학력', items: [
@@ -493,12 +504,13 @@ const T = {
       BUILD: { title: '이 사이트에 대하여', html: `
         <div class="card">
           <div class="period">일회용 여행 앱</div>
-          <h3>일본 여행에서 Claude로 만든 앱</h3>
+          <h3>일본 여행을 준비하면서 Claude로 앱을 제작</h3>
           <ul class="bullets">
             <li>최근 일본 여행에서 Claude로 저만을 위한 1회용 여행 앱을 만들어 사용했습니다.</li>
             <li>항공편·렌터카·숙소 정보를 한곳에 모으고, 일자별 일정을 탭으로 보여주고, 이동 구간마다 지도 링크를 걸어둬서 가방을 뒤지거나 주소를 입력할 필요가 없었습니다.</li>
             <li>코딩이 개발자만의 전유물이 아닌 세상이 온 것을 즐기는 중입니다.</li>
           </ul>
+          <p style="margin-top:12px"><a class="press-link" href="https://jaetheory.github.io/Japan-trip/" target="_blank" rel="noopener noreferrer">Niseko Family Trip · Zaborin<span class="arrow">↗</span></a></p>
           <div class="tags">
             <span class="tag gold">Claude</span>
             <span class="tag">Vibe Coding</span>
@@ -596,7 +608,7 @@ function renderHeader(){
   document.getElementById('hdr-label').textContent = t.label;
   document.getElementById('hdr-name').textContent = t.name;
   document.getElementById('hdr-name-alt').textContent = t.nameAlt;
-  document.getElementById('hdr-tag').textContent = t.tagline;
+  document.getElementById('hdr-tag').innerHTML = t.tagline;
   document.getElementById('btn-kr').classList.toggle('on', lang==='kr');
   document.getElementById('btn-en').classList.toggle('on', lang==='en');
   document.documentElement.lang = lang;
