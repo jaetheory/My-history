@@ -102,13 +102,12 @@
     font-weight:700;padding:0 8px 1px;margin:0 2px;border-radius:2px;
   }
 
-  /* ---------- Bottom nav ---------- */
+  /* ---------- Top nav (sticky under header) ---------- */
   .tabbar{
-    position:fixed;left:50%;bottom:0;transform:translateX(-50%);
-    width:100%;max-width:640px;z-index:20;
+    position:sticky;top:0;z-index:20;
     display:flex;justify-content:space-between;
     background:var(--ink);
-    padding:0 6px max(0px,env(safe-area-inset-bottom));
+    padding:0 6px;
   }
   .tab{
     flex:1 1 0;min-width:0;
@@ -119,14 +118,14 @@
     transition:color .2s ease;
   }
   .tab::before{
-    content:"";position:absolute;left:18%;right:18%;top:0;height:3px;
+    content:"";position:absolute;left:18%;right:18%;bottom:0;height:3px;
     background:var(--accent);transform:scaleX(0);transition:transform .2s ease;
   }
   .tab.on{color:var(--white)}
   .tab.on::before{transform:scaleX(1)}
 
   /* ---------- Content ---------- */
-  main{flex:1;padding:34px 22px 110px}
+  main{flex:1;padding:34px 22px 60px}
   .panel{display:none}
   .panel.on{display:block;animation:rise .3s ease}
   @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
@@ -297,7 +296,7 @@ const T = {
             ], tags:['Angel Investor','LP'] },
           { period:'2015 — 2016', title:'네이버 고문', titleEn:'Senior Advisor, Naver',
             bullets:[], tags:['Advisor'] },
-          { period:'2013 — 2015', title:'디스플레이 광고사업전략 총괄', titleEn:'Head of Display Advertising Strategy, Naver',
+          { period:'2013 — 2015', title:'네이버 디스플레이 광고사업전략 총괄', titleEn:'Head of Display Advertising Strategy, Naver',
             bullets:[
               'Directed the advertising business strategy in Korea',
             ], tags:['Ad Strategy','Executive'] },
@@ -305,7 +304,7 @@ const T = {
             bullets:[
               'Ran the subsidiary in Irvine, California, executing game publishing and the localization of Naver for the U.S. market',
             ], tags:['Overseas Business','USA'] },
-          { period:'2007 — 2008', title:'사업개발 SVP', titleEn:'SVP, Business Development',
+          { period:'2007 — 2008', title:'네이버 사업개발 SVP', titleEn:'SVP, Business Development, Naver',
             bullets:[
               'Led strategy development, external relations, and content sourcing partnerships after the Naver division spin-off',
             ], tags:['BizDev','Partnerships'] },
@@ -443,7 +442,7 @@ const T = {
             ], tags:['엔젤 투자','LP'] },
           { period:'2015 — 2016', title:'네이버 고문', titleEn:'Senior Advisor, Naver',
             bullets:[], tags:['Advisor'] },
-          { period:'2013 — 2015', title:'디스플레이 광고사업전략 총괄', titleEn:'Head of Display Advertising Strategy, Naver',
+          { period:'2013 — 2015', title:'네이버 디스플레이 광고사업전략 총괄', titleEn:'Head of Display Advertising Strategy, Naver',
             bullets:[
               '한국에서 광고사업 전략을 지휘',
             ], tags:['광고 전략','Executive'] },
@@ -451,7 +450,7 @@ const T = {
             bullets:[
               '미국 캘리포니아 Irvine 소재 법인을 운영. 게임퍼블리싱과 네이버 현지화 실행.',
             ], tags:['해외 사업','미국'] },
-          { period:'2007 — 2008', title:'사업개발 SVP', titleEn:'SVP, Business Development',
+          { period:'2007 — 2008', title:'네이버 사업개발 SVP', titleEn:'SVP, Business Development, Naver',
             bullets:[
               '네이버부문 분할 이후 전략 개발, 대외 업무, 콘텐츠 소싱 제휴를 총괄',
             ], tags:['사업개발','제휴'] },
